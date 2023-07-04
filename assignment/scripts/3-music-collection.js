@@ -44,20 +44,21 @@ findByArtist('Backstreet Boys');
 findByArtist('Red Hot Chili Peppers')
 
 function search(artist, year) {
-    let searchResults = [];
-    for (item of collection) {
-        if (`${item.artistName}` === artist && `${item.yearPublished}` == year) {
-            searchResults.push(`${item.albumTitle} by ${item.artistName}, published in ${item.yearPublished}`)
-        //} else if (`${item.artistName}` !== artist || `${item.yearPublished}` != year) {
-          //  searchResults = [];
-            //} else {
-              //   searchResults = [(collection)];
+    if (!artist && !year) {
+        console.log(collection);
+      } else {
+        let searchResults = [];
+        for (item of collection) {
+            if (`${item.artistName}` === artist && `${item.yearPublished}` == year) {
+                searchResults.push(`${item.albumTitle} by ${item.artistName}, published in ${item.yearPublished}`)
             }
         } console.log(searchResults); 
     } 
+}
 
 
 search('John Mayer', 2001);
 search('Red Hot Chili Peppers', 2010);
 search('Ray Charles', 1957)
+search('Red Hot Chili Peppers', 1999);
 search();
